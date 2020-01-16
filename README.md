@@ -31,8 +31,7 @@ usersテーブル
 |username|string|null: false|
 Association
 has_many :group
-has_many :message
-has_many :users_group
+belongs_to :message
 
 messageテーブル
 |Column|Type|Options|
@@ -41,7 +40,7 @@ messageテーブル
 |iamge|text||
 |user_id|integer|null: false, foreign_key: true|
 Association
-has_many :users
+belongs_to :users
 has_many :group
 
 groupテーブル
@@ -58,5 +57,5 @@ users_groupテーブル
 |user_id|integer|foreign_key: true|
 |text|text|null: false|
 Association
-belongs_to :group
-belongs_to :user
+has_many :group
+has_many :user
