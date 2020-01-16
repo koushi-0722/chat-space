@@ -7,8 +7,7 @@ usersテーブル
 |password|string|null: false|
 |name|string|null: false|
 Association
-has_many :groups
-belongs_to :message
+has_many :messages
 has_many :users_groups
 has_many :groups through: :users_groups
 
@@ -20,7 +19,7 @@ messageテーブル
 |user_id|integer|null: false, foreign_key: true|
 Association
 belongs_to :user
-has_many :groups
+belongs_to :group
 
 groupテーブル
 |Column|Type|Options|
