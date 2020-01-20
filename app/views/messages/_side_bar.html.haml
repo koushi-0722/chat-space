@@ -1,0 +1,19 @@
+.chat-side
+  .side-header
+    .side-header__box
+      .side-header__box__username masa
+      .side-header__box__items 
+        =link_to "#",class: "side-header__box__items__edit" do
+          =icon('fas', 'edit',class: ".side-header__box__items__edit")
+        =link_to"#", class: "side-header__box__items__gear"  do
+          =icon('fas', 'cog', class: ".side-header__box__items__gear")  
+        
+  .groups-list
+    .group-name 
+      =link_to "#", class: "groups-list__group-name" do
+        user
+    .group-message 
+      =link_to "#", class: "groups-list__group-message" do
+        おはよう
+
+  
