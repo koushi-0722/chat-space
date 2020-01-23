@@ -4,18 +4,17 @@
       .main-header__left-box-name test
       .main-header__left-box-user masa
     .main-header__edit
-      =link_to "#", class:"main-header__edit-box" do
+      =link_to "#" do
         Edit  
-  .content
-    .content__message
-      .content__message__name masa 2020/01/19
-      .content__message__text おはよう
+  .messages
+    = render @messages
   .form
-    %form.new_message 
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "typ a message"}
-        %label{class: "input-box__image"}
-          = icon('fas','image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
 
